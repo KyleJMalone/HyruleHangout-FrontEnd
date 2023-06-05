@@ -7,15 +7,21 @@ export const Register = (props) => {
     email: "",
     fullName: "",
   });
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
 
   const registerNewUser = () => {
-    return fetch("http://localhost:8088/users", {
+    const requestBody = {
+      Email: user.email,
+      FullName: user.fullName,
+    };
+  
+    return fetch("user", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=UTF-8",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(requestBody),
     })
       .then((res) => res.json())
       .then((createdUser) => {
@@ -24,28 +30,31 @@ export const Register = (props) => {
             "capstone_user",
             JSON.stringify({
               id: createdUser.id,
+              fullName: user.fullName,
             })
           );
-
           navigate("/");
         }
       });
   };
-
+  
+  
   const handleRegister = (e) => {
     e.preventDefault();
-    return fetch(`http://localhost:8088/users?email=${user.email}`)
+    return fetch(`http://localhost:7248/api/User/${user.email}`)
       .then((res) => res.json())
       .then((response) => {
-        if (response.length > 0) {
-          // Duplicate email. No good.
-          window.alert("Account with that email address already exists");
-        } else {
+        if (response.length === 0) {
           // Good email, create user.
           registerNewUser();
+        } else {
+          // Duplicate email. No good.
+          window.alert("Account with that email address already exists");
         }
       });
   };
+  
+  
 
   const updateUser = (evt) => {
     const copy = { ...user };
@@ -56,7 +65,7 @@ export const Register = (props) => {
   return (
     <main style={{ textAlign: "center" }}>
       <form className="form--login" onSubmit={handleRegister}>
-        <h1 className="h3 mb-3 font-weight-normal">Please Register</h1>
+        <h1 className="h3 mb-3 font-weight-normal">Your Destiny Awaits</h1>
         <fieldset>
           <label htmlFor="fullName"> Full Name </label>
           <input
