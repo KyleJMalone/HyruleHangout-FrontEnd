@@ -1,25 +1,24 @@
 .forums-page {
-    padding: 20px;
-  }
-  
-  .forum-card {
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-  }
-  
-  .forum-card .title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .forum-card .subtitle {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  /* Add more custom styles as needed */
-  
+  font-family: "Triforce", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #6c6a2e;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.forum-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.forum-card h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Add more custom styles as needed */

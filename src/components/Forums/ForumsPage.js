@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Text, Card } from "react-sheikah-ui";
+import { Card, Text } from "react-sheikah-ui";
 import "./ForumsPage.css";
+import { CommentsPage } from "../CommentsPage/CommentsPage"; // Import the CommentsPage component
 
 export const ForumsPage = () => {
   const [forums, setForums] = useState([]);
@@ -22,10 +23,10 @@ export const ForumsPage = () => {
       <h1>Forums</h1>
       {forums.map((forum) => (
         <Card key={forum.id} className="forum-card">
-          <Text variant="title">{forum.title}</Text>
-          <Text variant="subtitle">{`User ID: ${forum.userId}`}</Text>
+          <Text>{forum.title}</Text>
         </Card>
       ))}
+      <CommentsPage /> {/* Include the CommentsPage component */}
     </div>
   );
 };

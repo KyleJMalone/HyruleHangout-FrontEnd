@@ -1,0 +1,50 @@
+/* WalkthroughsPage.css */
+.walkthroughs-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .page-title {
+    font-family: "Triforce", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #6c6a2e;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .walkthroughs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .walkthrough-card {
+    padding: 20px;
+  }
+  
+  .walkthrough-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .walkthrough-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .walkthrough-description {
+    margin-bottom: 10px;
+  }
+  
+  .walkthrough-link {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .walkthrough-link:hover {
+    text-decoration: underline;
+  }
+  

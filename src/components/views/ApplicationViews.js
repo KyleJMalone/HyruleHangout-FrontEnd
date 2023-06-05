@@ -2,8 +2,10 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { MusicPage } from "../MusicPage/MusicPage";
 import { GamesPage } from "../GamesPage/Games";
+import { WalkthroughsPage } from "../Walkthroughs/WalkthroughsPage";
+import NavBar from "../NavBar/NavBar";
 import { ForumsPage } from "../Forums/ForumsPage";
-import NavBar from "../NavBar/NavBar"; // Correct the import statement
+import { CommentsPage } from "../CommentsPage/CommentsPage";
 
 export const ApplicationViews = () => {
   const localProjectUser = localStorage.getItem("capstone_user");
@@ -11,12 +13,13 @@ export const ApplicationViews = () => {
   
   return (
     <>
-      <NavBar /> {/* Include the NavBar component */}
+      <NavBar />
       <Routes>
         <Route path="/music" element={<MusicPage />} />
         <Route path="/games" element={<GamesPage />} />
-        <Route path="/forums" element={<ForumsPage />} />
-
+        <Route path="/walkthroughs" element={<WalkthroughsPage />} />
+        <Route path="/forums/*" element={<ForumsPage />} /> {/* Nest the ForumsPage route */}
+        <Route path="/comments/*" element={<CommentsPage />} /> {/* Nest the CommentsPage route */}
       </Routes>
     </>
   );
