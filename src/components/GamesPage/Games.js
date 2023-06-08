@@ -21,9 +21,11 @@ export const GamesPage = () => {
           <Card key={game.id} className="game-card" withBorder>
             <img src={game.gameImg} alt={game.title} className="game-image" />
             <div className="game-details">
-              <Text variant="title-2" className="game-title">
-                {game.title}
-              </Text>
+              <a href={`/games/${game.id}`}>
+                <Text variant="title-2" className="game-title">
+                  {game.title}
+                </Text>
+              </a>
               <Text variant="small" className="game-description">
                 Release Year: {game.dateReleased}
               </Text>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Card, Text, Button } from "react-sheikah-ui";
+import ReactPlayer from "react-player";
 import axios from "axios";
 import "./MusicPage.css";
 
 export const MusicPage = () => {
   const [music, setMusic] = useState([]);
+  const [videoId, setVideoId] = useState(null);
 
   useEffect(() => {
     fetchMusic();
@@ -20,11 +22,12 @@ export const MusicPage = () => {
   };
 
   const handlePlay = (track) => {
-    const audioElement = new Audio(track.audioUrl);
-    audioElement.addEventListener("canplaythrough", () => {
-      audioElement.play();
-    });
-    console.log("Playing track:", track.title);
+    const videoId = track.fileUrl.split("=")[1];
+    setVideoId(videoId);
+  };
+
+  const handleStop = () => {
+    setVideoId(null);
   };
 
   return (
@@ -51,13 +54,32 @@ export const MusicPage = () => {
               <Text variant="small" className="music-description">
                 Released: {track.dateReleased}
               </Text>
-              <Button
-                variant="primary"
-                onClick={() => handlePlay(track)}
-                className="play-button"
-              >
-                Play: {track.title}
-              </Button>
+              {videoId === track.id ? (
+                <div className="music-player">
+                  <ReactPlayer
+                    url={track.fileUrl}
+                    playing
+                    controls
+                    width="100%"
+                    height="100px"
+                  />
+                  <Button
+                    variant="primary"
+                    onClick={handleStop}
+                    className="play-button"
+                  >
+                    Stop
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  variant="primary"
+                  onClick={() => handlePlay(track)}
+                  className="play-button"
+                >
+                  Play
+                </Button>
+              )}
             </div>
           </Card>
         ))}

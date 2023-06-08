@@ -1,9 +1,11 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Authorized } from "../views/Authorized";
 import { ApplicationViews } from "../views/ApplicationViews";
 import { Login } from "../auth/Login";
 import { Register } from "../auth/Register";
-import "./HyruleHangout.css"; // Import your CSS file
+import "./HyruleHangout.css"
+
 
 export const HyruleHangout = () => {
   return (

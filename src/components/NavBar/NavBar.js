@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const Navbar = () => {
+  const handleLogout = () => {
+    // Perform logout logic here
+    // For example, clear user data from local storage and redirect to the login page
+    localStorage.removeItem("capstone_user");
+    window.location.href = "/login"; // Redirect to the login page
+  };
+
   return (
     <nav className="navbar">
       <ul className="nav-menu">
@@ -30,6 +37,11 @@ const Navbar = () => {
           <Link to="/forums" className="nav-link">
             Forums
           </Link>
+        </li>
+        <li className="nav-item">
+          <button className="nav-link" onClick={handleLogout}>
+            Logout
+          </button>
         </li>
       </ul>
     </nav>

@@ -41,7 +41,7 @@ export const Register = (props) => {
   
   const handleRegister = (e) => {
     e.preventDefault();
-    return fetch(`http://localhost:7248/api/User/${user.email}`)
+    return fetch(`https://localhost:7248/api/User`)
       .then((res) => res.json())
       .then((response) => {
         if (response.length === 0) {

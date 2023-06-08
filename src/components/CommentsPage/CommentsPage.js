@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Card, Text } from "react-sheikah-ui";
-//import "./CommentsPage.css";
 
 export const CommentsPage = () => {
   const [comments, setComments] = useState([]);
@@ -22,8 +21,8 @@ export const CommentsPage = () => {
       <h1>Comments</h1>
       {comments.map((comment) => (
         <Card key={comment.id} className="comment-card">
-          <Text>{comment.content}</Text>
-          <p>By: {comment.author}</p>
+          <Text>{comment.text}</Text>
+          <p>By: {comment.user.userName}</p>
         </Card>
       ))}
     </div>

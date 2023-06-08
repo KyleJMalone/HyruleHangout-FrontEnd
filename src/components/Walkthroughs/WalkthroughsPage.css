@@ -43,8 +43,6 @@
     color: blue;
     text-decoration: none;
   }
-  
-  .walkthrough-link:hover {
-    text-decoration: underline;
+  .Link {
+    color:white
   }
-  
