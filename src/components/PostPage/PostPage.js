@@ -82,11 +82,13 @@ const PostPage = () => {
 
   // Handle the update of an existing post
   const handlePostUpdate = async (postId, newText) => {
+    console.log(postId,newText)
     try {
       const updatedPost = {
+        id: postId,
         text: newText,
       };
-
+     console.log(updatedPost)
       const response = await fetch(
         `https://localhost:7248/api/Post/${postId}`,
         {
@@ -141,8 +143,10 @@ const PostPage = () => {
     setEditingPostId(null);
   };
 
-  const handleEditSubmit = (postId, newText) => {
-    handlePostUpdate(postId, newText);
+
+  const handleEditSubmit = async (postId, newText) => {
+    console.log(postId,newText)
+   await handlePostUpdate(postId, newText);
     setEditingPostId(null);
   };
 
