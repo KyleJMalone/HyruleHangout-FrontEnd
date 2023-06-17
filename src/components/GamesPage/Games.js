@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Text } from "react-sheikah-ui";
+import { Text } from "react-sheikah-ui";
 import "./GamesPage.css";
 
 export const GamesPage = () => {
@@ -18,7 +18,7 @@ export const GamesPage = () => {
       <h1 className="page-title">Games</h1>
       <div className="games-list">
         {games.map((game) => (
-          <Card key={game.id} className="game-card" withBorder>
+          <div key={game.id} className="game-card" withBorder>
             <img src={game.gameImg} alt={game.title} className="game-image" />
             <div className="game-details">
               <a href={`/games/${game.id}`}>
@@ -33,7 +33,7 @@ export const GamesPage = () => {
                 Description: {game.description}
               </Text>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </div>

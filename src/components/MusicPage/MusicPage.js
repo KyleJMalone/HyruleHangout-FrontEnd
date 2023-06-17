@@ -22,8 +22,7 @@ export const MusicPage = () => {
   };
 
   const handlePlay = (track) => {
-    const videoId = track.fileUrl.split("=")[1];
-    setVideoId(videoId);
+    setVideoId(track.id);
   };
 
   const handleStop = () => {

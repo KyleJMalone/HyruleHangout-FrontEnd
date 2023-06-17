@@ -18,7 +18,6 @@ export const CommentsPage = () => {
 
   return (
     <div className="comments-page">
-      <h1>Comments</h1>
       {comments.map((comment) => (
         <Card key={comment.id} className="comment-card">
           <Text>{comment.text}</Text>
